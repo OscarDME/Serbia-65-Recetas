@@ -52,11 +52,11 @@ export default function Closing() {
           value: priceNum,
           currency: "USD",
           items: [
-            { item_id: "365_recetas_saludables_closing", item_name: "365 Recetas Saludables", price: priceNum },
+            { item_id: "365_recetas_saludables_closing", item_name: "365 Healthy Recipes", price: priceNum },
           ],
         });
       }
-      console.log("[Closing] begin_checkout disparado ✅");
+      console.log("[Closing] begin_checkout fired");
     } catch (e) {
       console.error("[Closing] analytics error", e);
     }

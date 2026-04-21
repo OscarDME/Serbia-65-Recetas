@@ -20,14 +20,14 @@ export default function CarouselSection() {
       <div className="max-w-6xl mx-auto relative">
         <div className="relative">
           <button
-            aria-label="Anterior"
+            aria-label={carouselSection.prevLabel}
             onClick={() => scrollBy("prev")}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 items-center justify-center hover:bg-slate-50"
           >
             <ChevronLeft className="w-5 h-5 text-slate-700" />
           </button>
           <button
-            aria-label="Siguiente"
+            aria-label={carouselSection.nextLabel}
             onClick={() => scrollBy("next")}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 items-center justify-center hover:bg-slate-50"
           >

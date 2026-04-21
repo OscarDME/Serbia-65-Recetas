@@ -12,8 +12,8 @@ export default function Story() {
 
       <div className="relative max-w-5xl mx-auto">
         <h2 className="text-center text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-          {story.headline.split(" que destruye tu salud")[0]}{" "}
-          <span className="text-red-400">que destruye tu salud</span>
+          {story.headlinePre}{" "}
+          <span className="text-red-400">{story.headlineHighlight}</span>
         </h2>
         <p className="mt-5 text-center text-base md:text-lg text-slate-300 max-w-3xl mx-auto">
           {story.intro}
@@ -36,7 +36,7 @@ export default function Story() {
         <div className="mt-14 text-center">
           <div className="inline-flex items-center gap-2 bg-[var(--color-brand)]/20 text-[var(--color-brand-light)] text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-4">
             <Sparkles className="w-4 h-4" />
-            La solución
+            {story.solutionBadge}
           </div>
           <h3 className="text-2xl md:text-4xl font-extrabold text-[var(--color-brand-light)] leading-tight max-w-4xl mx-auto">
             {story.solutionHeadline}

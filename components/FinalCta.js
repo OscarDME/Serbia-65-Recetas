@@ -30,19 +30,19 @@ export default function FinalCta() {
 
           if (src) {
             urlObj.searchParams.set("src", src);
-            console.log("🔗 FinalCTA: src agregado ->", src);
+            console.log("[FinalCTA] src added ->", src);
           }
 
           if (fbclid) {
             urlObj.searchParams.set("fbclid", fbclid);
-            console.log("🔗 FinalCTA: fbclid agregado ->", fbclid);
+            console.log("[FinalCTA] fbclid added ->", fbclid);
           }
 
           setCheckoutUrl(urlObj.toString());
         }
       }
     } catch (error) {
-      console.error("Error construyendo URL:", error);
+      console.error("[FinalCTA] URL build error:", error);
     }
   }, []);
 
@@ -66,17 +66,17 @@ export default function FinalCta() {
           items: [
             {
               item_id: "365_recetas_saludables_cta",
-              item_name: "365 Recetas Saludables",
+              item_name: "365 Healthy Recipes",
               price: priceNum,
             },
           ],
         });
       }
 
-      console.log("[FinalCTA] begin_checkout disparado ✅");
-      console.log("[FinalCTA] Navegando a:", checkoutUrl);
+      console.log("[FinalCTA] begin_checkout fired");
+      console.log("[FinalCTA] Navigating to:", checkoutUrl);
     } catch (err) {
-      console.error("[FinalCTA] Error en analytics:", err);
+      console.error("[FinalCTA] analytics error:", err);
     }
   };
 
