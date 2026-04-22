@@ -1,7 +1,7 @@
 "use client";
 
 import { copy } from "@/lib/copy";
-import { ChevronDown, Check, User } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 export default function Testimonials() {
   const { testimonials } = copy;
@@ -22,7 +22,7 @@ export default function Testimonials() {
           {testimonials.messages.map((msg, i) => (
             <div
               key={i}
-              className="rounded-2xl overflow-hidden shadow-[0_8px_30px_-8px_rgba(0,0,0,0.2)] ring-1 ring-black/8"
+              className="rounded-2xl overflow-hidden shadow-[0_8px_30px_-8px_rgba(0,0,0,0.15)] ring-1 ring-black/5 select-none pointer-events-none"
             >
               {/* Chat body */}
               <div
@@ -36,29 +36,42 @@ export default function Testimonials() {
                 {/* Bubble */}
                 <div
                   className="relative bg-white shadow-sm"
-                  style={{ borderRadius: "0 12px 12px 12px", maxWidth: "90%" }}
+                  style={{ 
+                    borderRadius: "0 12px 12px 12px", 
+                    maxWidth: "85%",
+                    fontFamily: "Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif"
+                  }}
                 >
                   {/* Tail */}
-                  <span
-                    className="absolute top-0 -left-[7px] w-0 h-0 block"
-                    style={{
-                      borderTop: "8px solid white",
-                      borderLeft: "8px solid transparent",
-                    }}
-                  />
-                  <p className="px-3 pt-3 pb-1 text-[13.5px] md:text-[14px] text-[#111B21] leading-relaxed">
+                  <svg 
+                    className="absolute top-0 -left-[8px]" 
+                    width="8" 
+                    height="13" 
+                    viewBox="0 0 8 13" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M1.53333 0.343146C0.428761 -0.761424 0 3.5 0 5.5C0 7.5 0.428761 11.7614 1.53333 10.6569L7.46667 4.72351C8.57124 3.61894 8.57124 1.8247 7.46667 0.720131L1.53333 0.343146Z" fill="white"/>
+                  </svg>
+
+                  <p className="px-3 pt-2 pb-1 text-[14.2px] text-[#111B21] leading-[1.4] tracking-tight">
                     {msg.text}
                   </p>
-                  <div className="flex justify-end items-center gap-1 px-2.5 pb-2">
-                    <span className="text-[11px] text-[#667781] select-none">{msg.time}</span>
-                    <Check className="w-3 h-3 text-[#667781]" strokeWidth={2.5} />
+                  
+                  {/* Time and Blue Checks */}
+                  <div className="flex justify-end items-center gap-0.5 px-2 pb-1.5 mt-[-4px]">
+                    <span className="text-[11px] text-[#667781] mr-0.5">{msg.time}</span>
+                    <div className="flex items-center -space-x-1.5">
+                      <Check className="w-[13px] h-[13px] text-[#53bdeb]" strokeWidth={3} />
+                      <Check className="w-[13px] h-[13px] text-[#53bdeb]" strokeWidth={3} />
+                    </div>
                   </div>
                 </div>
 
                 {/* Reactions */}
                 {msg.reactions && (
-                  <div className="mt-1 ml-1 inline-flex items-center gap-0.5 bg-white/90 backdrop-blur-sm rounded-full px-2 py-0.5 shadow-sm text-sm select-none">
-                    {msg.reactions.join(" ")}
+                  <div className="mt-[-8px] relative z-10 ml-2 inline-flex items-center gap-0.5 bg-white border border-gray-100 rounded-full px-1.5 py-0.5 shadow-md text-[13px]">
+                    {msg.reactions.join("")}
                   </div>
                 )}
               </div>
@@ -70,7 +83,7 @@ export default function Testimonials() {
           <a
             href="#final-cta-section"
             onClick={handleScroll}
-            className="inline-flex items-center justify-center gap-2 bg-[var(--color-brand)] hover:bg-[var(--color-brand-dark)] text-white font-extrabold text-base md:text-lg px-8 py-4 rounded-2xl shadow-[0_10px_30px_-10px_rgba(22,163,74,0.6)] border-b-4 border-[var(--color-brand-dark)] transition-all hover:translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--color-brand)] hover:bg-[var(--color-brand-dark)] text-white font-extrabold text-base md:text-lg px-8 py-4 rounded-2xl shadow-[0_10px_30px_-10px_rgba(22,163,74,0.6)] border-b-4 border-[var(--color-brand-dark)] transition-all hover:translate-y-0.5 active:translate-y-1"
           >
             {testimonials.cta}
             <ChevronDown className="w-5 h-5" />
